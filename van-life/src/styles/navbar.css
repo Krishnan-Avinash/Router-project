@@ -66,3 +66,58 @@
     padding: 0 1.05rem 0 1.05rem;
   }
 }
+.car-container {
+  height: fit-content;
+  margin: 0 auto 0 auto;
+  width: 50vw;
+  padding: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  /* align-items: center; */
+}
+.car-details {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.car-details div {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.selected-van {
+  background-color: wheat;
+  display: flex;
+}
+.selected-van img {
+  height: 500px;
+}
+.right-1 {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.back-back {
+  background-color: wheat;
+  width: 100vw;
+  padding: 0.5rem 0 0.5rem 2rem;
+}
+.btn {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: orange;
+}
