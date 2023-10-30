@@ -1,48 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import SelectedVan from "./SelectedVan";
-const Vans = () => {
-  return (
-    <div className="car-container">
-      <div className="cars">
-        <Link to="/selectedvan">
-          <img src="https://source.unsplash.com/random/150x150/?car" alt="" />
-        </Link>
-        <div className="car-details">
-          <h3>Explorer</h3>
-          <div className="price">$80</div>
+import "./server";
+import "./styles/index.css";
+export default function Vans() {
+  const [vans, setVans] = React.useState([]);
+  React.useEffect(() => {
+    fetch("/api/vans")
+      .then((res) => res.json())
+      .then((data) => setVans(data.vans));
+  }, []);
+
+  const vanElements = vans.map((van) => (
+    <div key={van.id} className="van-tile">
+      <img alt={van.name} src={van.imageUrl} />
+      <div className="complete">
+        <div className="van-info">
+          <h3>{van.name}</h3>
+          <p>
+            ${van.price}
+            <span>/day</span>
+          </p>
         </div>
-      </div>
-      <div className="cars">
-        <img src="https://source.unsplash.com/random/150x150/?car" alt="" />
-        <div className="car-details">
-          <h3>Explorer2</h3>
-          <div className="price">$820</div>
-        </div>
-      </div>
-      <div className="cars">
-        <img src="https://source.unsplash.com/random/150x150/?car" alt="" />
-        <div className="car-details">
-          <h3>Explorer3</h3>
-          <div className="price">$830</div>
-        </div>
-      </div>
-      <div className="cars">
-        <img src="https://source.unsplash.com/random/150x150/?car" alt="" />
-        <div className="car-details">
-          <h3>Explorer4</h3>
-          <div className="price">$804</div>
-        </div>
-      </div>
-      <div className="cars">
-        <img src="https://source.unsplash.com/random/150x150/?car" alt="" />
-        <div className="car-details">
-          <h3>Explorer5</h3>
-          <div className="price">$805</div>
-        </div>
+
+        <i className={`van-type ${van.type} selected`}>{van.type}</i>
       </div>
     </div>
-  );
-};
+  ));
 
-export default Vans;
+  return (
+    <div className="van-list-container">
+      <h1>Explore our van options</h1>
+      <div className="van-list">{vanElements}</div>
+    </div>
+  );
+}
