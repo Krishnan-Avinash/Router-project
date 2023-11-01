@@ -1,33 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import "./server";
+import "./styles/index.css";
 
 const SelectedVan = () => {
+  const params = useParams();
+  const [van, setVan] = useState(null);
+  useEffect(() => {
+    fetch(`/api/vans/${params.id}`)
+      .then((res) => res.json())
+      .then((data) => setVan(data.vans));
+  }, [params.id]);
   return (
-    <div>
-      <div className="back-back">
-        <Link to="/vans">Back to all vans</Link>
-      </div>
-      <div className="selected-van">
-        <div className="cars">
-          <Link to="/selectedvan">
-            <img src="https://source.unsplash.com/random/150x150/?car" alt="" />
-          </Link>
+    <div className="van-detail-container">
+      {van ? (
+        <div className="van-detail">
+          <img alt={van.name} src={van.imageUrl} />
+          <i className={`van-type ${van.type} selected`}>{van.type}</i>
+          <h2>{van.name}</h2>
+          <p className="van-price">
+            <span>${van.price}</span>/day
+          </p>
+          <p>{van.description}</p>
+          <button className="link-button">Rent this van</button>
         </div>
-        <div className="right-1">
-          <h1>Explorer1</h1>
-          <h3>$80/day</h3>
-          <h5>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Temporibus, beatae ipsum hic, illo dolores minus eligendi
-            repudiandae porro, fugiat nihil deserunt. Praesentium ab molestiae
-            distinctio iure cupiditate maxime dolorum in eveniet quam tempora
-            atque ad, placeat architecto, amet quidem quis ipsa vel inventore
-            perferendis minima perspiciatis accusantium ullam repudiandae?
-            Accusamus.
-          </h5>
-          <button className="btn">Rent this van</button>
-        </div>
-      </div>
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </div>
   );
 };

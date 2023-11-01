@@ -1,6 +1,8 @@
 import React from "react";
 import "./server";
 import "./styles/index.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 export default function Vans() {
   const [vans, setVans] = React.useState([]);
   React.useEffect(() => {
@@ -11,7 +13,9 @@ export default function Vans() {
 
   const vanElements = vans.map((van) => (
     <div key={van.id} className="van-tile">
-      <img alt={van.name} src={van.imageUrl} />
+      <Link to={`/vans/${van.id}`}>
+        <img alt={van.name} src={van.imageUrl} />
+      </Link>
       <div className="complete">
         <div className="van-info">
           <h3>{van.name}</h3>
