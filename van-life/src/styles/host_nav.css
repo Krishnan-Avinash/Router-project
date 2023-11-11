@@ -1,0 +1,14 @@
+.nav-bar-host {
+  display: flex;
+  font-size: 1.15rem;
+  width: 100%;
+  padding-left: 1.5rem;
+  gap: 1rem;
+}
+.nav-bar-host a {
+  /* color: black; */
+}
+.selected-link {
+  color: red;
+  font-size: 2rem;
+}

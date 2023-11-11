@@ -1,0 +1,12 @@
+.footer-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  display: flex;
+  border: 1px solid black;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: block;
+}
