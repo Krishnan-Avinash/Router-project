@@ -1,6 +1,6 @@
 import React from "react";
-import "./server";
-import "./styles/index.css";
+import "../../Server/server";
+import "../../styles/index.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export default function Vans() {

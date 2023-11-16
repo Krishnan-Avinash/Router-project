@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import App from "./App.jsx";
-import Home from "./Home.jsx";
-import About from "./About.jsx";
-import Vans from "./Vans.jsx";
+import Home from "./pages/MainPage/Home.jsx";
+import About from "./pages/About/About.jsx";
+import Vans from "./pages/VanPage/Vans.jsx";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import SelectedVan from "./SelectedVan.jsx";
-import Layout from "./Layout.jsx";
-import Host from "./Host.jsx";
-import Income from "./income.jsx";
-import Reviews from "./reviews.jsx";
-import HostLayout from "./HostLayout.jsx";
+import SelectedVan from "./pages/MainPage/SelectedVan.jsx";
+import Layout from "./pages/MainPage/Layout.jsx";
+import Host from "./pages/Host/Host.jsx";
+import Income from "./pages/Host/Income.jsx";
+import Reviews from "./pages/Host/Reviews.jsx";
+import HostLayout from "./pages/Host/HostLayout.jsx";
+import HostVans from "./pages/Host/HostVans.jsx";
+import Details from "./pages/Host/Details.jsx";
+import Pricing from "./pages/Host/Pricing.jsx";
+import Photos from "./pages/Host/Photos.jsx";
+import NestedSelectedVan from "./pages/Host/NestedSelectedVan.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -24,6 +29,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route index element={<Host />} />
           <Route path="income" element={<Income />} />
           <Route path="reviews" element={<Reviews />} />
+          <Route path="vans" element={<HostVans />} />
+          <Route path="vans/:id" element={<NestedSelectedVan />}>
+            <Route index element={<Details />} />
+            <Route path="pricing" element={<Pricing />} />
+            <Route path="photos" element={<Photos />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

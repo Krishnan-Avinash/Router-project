@@ -1,0 +1,42 @@
+.nested-van-detail img {
+  height: 15rem;
+}
+.nested-van-detail {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 5rem;
+}
+.nested-right {
+  /* text-wrap: balance; */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.25rem;
+}
+.nested-right i {
+  width: 7rem;
+  text-align: center;
+  padding: 0.25rem;
+}
+
+.nested-selected-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+}
+.nested-nav a {
+  color: black;
+}
+.nested-nav {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}

@@ -121,3 +121,9 @@
   font-weight: 700;
   background-color: orange;
 }
+.main-layout-selected-link {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  color: white;
+  font-weight: bold;
+}

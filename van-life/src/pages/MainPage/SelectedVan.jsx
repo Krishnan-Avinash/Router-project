@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import "./server";
-import "./styles/index.css";
+import "../../Server/server";
+import "../../styles/index.css";
 
 const SelectedVan = () => {
   const params = useParams();

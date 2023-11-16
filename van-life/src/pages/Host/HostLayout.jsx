@@ -1,13 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import "./styles/host_nav.css";
+import "../../styles/host_nav.css";
 const HostLayout = () => {
   return (
     <>
       <div className="nav-bar-host">
         <NavLink
           to="/host"
+          end
           className={({ isActive }) => (isActive ? "selected-link" : null)}
         >
           Dashboard
@@ -17,6 +18,12 @@ const HostLayout = () => {
           className={({ isActive }) => (isActive ? "selected-link" : null)}
         >
           Income
+        </NavLink>
+        <NavLink
+          to="/host/vans"
+          className={({ isActive }) => (isActive ? "selected-link" : null)}
+        >
+          Vans
         </NavLink>
         <NavLink
           to="/host/reviews"
