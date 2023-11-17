@@ -3,11 +3,12 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import "../../styles/NestedSelectedVanStyle.css";
 
 const SelectedVan = () => {
   const params = useParams();
-  const [van, setVan] = useState(null);
+  const [van, setVan] = useState("");
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
@@ -15,6 +16,11 @@ const SelectedVan = () => {
   }, [params.id]);
   return (
     <>
+      <div className="back-to-all-vans nested-nav">
+        <Link to=".." relative="path">
+          &#8592;Back to all vans
+        </Link>
+      </div>
       <div className="nested-van-detail-container">
         {van ? (
           <div className="nested-van-detail">
@@ -31,6 +37,7 @@ const SelectedVan = () => {
           <h2>Loading...</h2>
         )}
       </div>
+
       <div className="nested-nav">
         <NavLink
           to="."
@@ -58,12 +65,8 @@ const SelectedVan = () => {
           Photos
         </NavLink>
       </div>
-      <div className="back-to-all-vans nested-nav">
-        <Link to=".." relative="path">
-          &#8592;Back to all vans
-        </Link>
-      </div>
-      <Outlet />
+
+      <Outlet context={{ van }} />
     </>
   );
 };

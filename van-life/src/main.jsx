@@ -12,10 +12,10 @@ import Income from "./pages/Host/Income.jsx";
 import Reviews from "./pages/Host/Reviews.jsx";
 import HostLayout from "./pages/Host/HostLayout.jsx";
 import HostVans from "./pages/Host/HostVans.jsx";
-import Details from "./pages/Host/Details.jsx";
-import Pricing from "./pages/Host/Pricing.jsx";
-import Photos from "./pages/Host/Photos.jsx";
 import NestedSelectedVan from "./pages/Host/NestedSelectedVan.jsx";
+import Details from "./pages/Host/WithinHost/Details.jsx";
+import Pricing from "./pages/Host/WithinHost/Pricing.jsx";
+import Photos from "./pages/Host/WithinHost/Photos.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
